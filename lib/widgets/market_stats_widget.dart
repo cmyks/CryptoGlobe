@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import '../providers/crypto_provider.dart';
 
 class MarketStatsWidget extends StatelessWidget {
-  const MarketStatsWidget({Key? key}) : super(key: key);
+  const MarketStatsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

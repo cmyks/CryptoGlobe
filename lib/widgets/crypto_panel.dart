@@ -5,7 +5,7 @@ import '../providers/crypto_provider.dart';
 import '../models/crypto_model.dart';
 
 class CryptoPanel extends StatelessWidget {
-  const CryptoPanel({Key? key}) : super(key: key);
+  const CryptoPanel({super.key});
 
   @override
   Widget build(BuildContext context) {

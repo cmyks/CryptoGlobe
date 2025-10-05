@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/globe_provider.dart';
-import '../providers/crypto_provider.dart';
+import '../providers/crypto_provider.dart' as crypto; // Alias to disambiguate
 import '../providers/gemini_provider.dart';
 import '../widgets/globe_widget.dart';
 import '../widgets/crypto_panel.dart';
@@ -35,7 +35,6 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
       duration: const Duration(milliseconds: 300),
     );
 
-    // Auto-rotate globe
     Future.delayed(Duration.zero, () {
       _startAutoRotation();
     });
@@ -68,20 +67,13 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
     return Scaffold(
       body: Stack(
         children: [
-          // Animated background
           _buildAnimatedBackground(),
-          
-          // Main content
           SafeArea(
             child: isLandscape
                 ? _buildLandscapeLayout()
                 : _buildPortraitLayout(),
           ),
-          
-          // Top app bar
           _buildTopBar(),
-          
-          // Floating action buttons
           _buildFloatingActions(),
         ],
       ),
@@ -113,11 +105,7 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
     return Column(
       children: [
         const SizedBox(height: 60),
-        
-        // Market stats
         const MarketStatsWidget(),
-        
-        // 3D Globe
         Expanded(
           flex: 3,
           child: FadeTransition(
@@ -125,11 +113,7 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
             child: const GlobeWidget(),
           ),
         ),
-        
-        // Bottom tabs
         _buildTabBar(),
-        
-        // Content panel
         Expanded(
           flex: 2,
           child: _buildContentPanel(),
@@ -141,7 +125,6 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
   Widget _buildLandscapeLayout() {
     return Row(
       children: [
-        // Left side - Globe
         Expanded(
           flex: 3,
           child: Column(
@@ -157,8 +140,6 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
             ],
           ),
         ),
-        
-        // Right side - Panels
         Expanded(
           flex: 2,
           child: Column(
@@ -194,7 +175,6 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Row(
             children: [
-              // Logo and title
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -222,8 +202,6 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
                 ),
               ),
               const Spacer(),
-              
-              // Live indicator
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
@@ -345,7 +323,7 @@ class _GlobeScreenState extends State<GlobeScreen> with TickerProviderStateMixin
           _buildFloatingButton(
             icon: Icons.refresh,
             onTap: () {
-              context.read<CryptoProvider>().refreshData();
+              context.read<crypto.CryptoProvider>().refreshData(); // Use alias
             },
             tooltip: 'Refresh Data',
           ),

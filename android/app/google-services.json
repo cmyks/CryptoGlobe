@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "20602257979",
+    "project_id": "pixelsearchai",
+    "storage_bucket": "pixelsearchai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20602257979:android:f883c281fd77e24a08921e",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL0xETICxtSzOMDhuvBz6rrrWhSyXIy8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

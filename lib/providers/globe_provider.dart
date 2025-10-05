@@ -7,7 +7,7 @@ class GlobeProvider extends ChangeNotifier {
   double _zoom = 1.0;
   bool _isRotating = true;
   String? _selectedCountry;
-  List<MapMarker> _markers = [];
+  final List<MapMarker> _markers = [];
   
   double get rotationX => _rotationX;
   double get rotationY => _rotationY;
